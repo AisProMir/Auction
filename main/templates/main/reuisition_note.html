@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Тут что то написано должно быть
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">№ Груза</th>
+      <th scope="col">Время создания</th>
+      <th scope="col">Время до закрытия</th>
+      <th scope="col">Груз</th>
+      <th scope="col">Транспорт</th>
+      <th scope="col">Количество</th>
+      <th scope="col">Погрузка</th>
+      <th scope="col">Разгрузка</th>
+      <th scope="col">Преложения</th>
+      <th scope="col">Статус</th>
+      <th scope="col">Действие</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for zayaka in zayakas %}
+    <tr>
+      <th scope="row">{{ zayaka.number }}</th>
+      <td>{{ zayaka.creation_time }}</td>
+      <td>{{ zayaka.closing_time }}</td>
+      <td>{{ zayaka.gruz }}</td>
+      <td>{{ zayaka.transport }}</td>
+      <td>{{ zayaka.kolishestvo }}</td>
+      <td>{{ zayaka.pogruzka }}</td>
+      <td>{{ zayaka.razgruzka }}</td>
+      <td>Предложение</td>
+      <td>Статус</td>
+      <td>Действия</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

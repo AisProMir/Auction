@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Добавление заявки {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Добавление заявки</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.number }}
+            {{ form.closing_time }}
+            {{ form.gruz }}
+            {{ form.transport }}
+            {{ form.kolishestvo }}
+            {{ form.pogruzka }}
+            {{ form.razgruzka }}
+        <span>{{ error }}</span>
+        <button class="btn btn-primary" type="submit">Добавить заявку</button>
+    </form>
+</div>
+{% endblock %}
