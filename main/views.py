@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from .models import Zayaka, InformationOfCargo, Transport
-from .forms import Zayaka_form
+
 
 class IndexView(TemplateView):
     template_name = "main/index.html"
@@ -23,20 +23,30 @@ class ReuisitionNoteView(TemplateView):
 class ReuisitionNoteCreateView(TemplateView):
     template_name = "main/reuisition_note_create.html"
 
-    def create(self, request):
-        error = ''
-        if request.method == 'POST':
-            form = Zayaka_form(request.POST)
-            if form.is_valid():
-                form.save()
-                return request('reuisition_note.html')
-            else:
-                error = 'Заполните все поля'
-        form = Zayaka_form
+    def post(self, request):
+        number = request.POST["nomer"]
+        closing_time = request.POST["griz"]
+        gruz = request.POST["griz"]
+        transport = request.POST["mashina"]
+        kolishestvo = request.POST["skolko"]
+        pogruzka = request.POST["otcuda"]
+        razgruzka = request.POST["cyda"]
+        Zayaka.objects.create(number=number,closing_time=closing_time,gruz=gruz,
+                              transport=transport,kolishestvo=kolishestvo,
+                              pogruzka=pogruzka,razgruzka=razgruzka)
+        return redirect("index")
 
-        data = {
-            'form': form,
-            'error': error
-        }
+class GruzCreateView(TemplateView):
+    template_name = "main/gruz_create.html"
 
-        return render(request,self.template_name, data)
+    def post(self, request):
+        name = request.POST["nazvanie"]
+        temperatyra = request.POST["gradus"]
+        Ves = request.POST["nagruzka"]
+        Obiom = request.POST["mashtab"]
+        kolvoMest = request.POST["skolko mest"]
+        stoimostGruza = request.POST["cena"]
+        InformationOfCargo.objects.create(name=name,temperatyra=temperatyra,Ves=Ves,
+                              Obiom=Obiom,kolvoMest=kolvoMest,
+                              stoimostGruza=stoimostGruza)
+        return redirect("reuisition-note-create")

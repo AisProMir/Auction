@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Тут что то написано должно быть
+{% endblock %}
+
+{% block content %}
+    <div class="container-sm">
+    <form method="post">
+    {% csrf_token %}
+  <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Наименование</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="name" name="nazvanie" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="temperatura" class="col-sm-2 col-form-label">Температура</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="temperatura" name="gradus" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="ves" class="col-sm-2 col-form-label">Вес</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="ves" name="nagruzka" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="obuom" class="col-sm-2 col-form-label">Объём</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="obuom" name="mashtab" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="kolishestvo mest" class="col-sm-2 col-form-label">Количество мест</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="kolishestvo mest" name="skolko mest" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="stoimost" class="col-sm-2 col-form-label">Стоимость груза</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="stoimost" name="cena" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>
+    </div>
+{% endblock %}

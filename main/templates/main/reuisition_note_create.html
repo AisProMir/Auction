@@ -1,21 +1,57 @@
 {% extends 'main/base.html' %}
 
-{% block title %} Добавление заявки {% endblock %}
+{% block title %}
+Тут что то написано должно быть
+{% endblock %}
 
 {% block content %}
-    <div class="features">
-        <h1>Добавление заявки</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.number }}
-            {{ form.closing_time }}
-            {{ form.gruz }}
-            {{ form.transport }}
-            {{ form.kolishestvo }}
-            {{ form.pogruzka }}
-            {{ form.razgruzka }}
-        <span>{{ error }}</span>
-        <button class="btn btn-primary" type="submit">Добавить заявку</button>
-    </form>
-</div>
+    <div class="container-sm">
+    <form method="post">
+    {% csrf_token %}
+  <div class="form-group row">
+    <label for="number" class="col-sm-2 col-form-label">№ Груза</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="number" name="nomer" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="closing_time" class="col-sm-2 col-form-label">Время до закрытия</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="closing_time" name="vrema" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="gruz" class="col-sm-2 col-form-label">Груз</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="gruz" name="griz" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="transport" class="col-sm-2 col-form-label">Транспорт</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="transport" name="mashina" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="kolishestvo" class="col-sm-2 col-form-label">Количество</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="kolishestvo" name="skolko" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="pogruzka" class="col-sm-2 col-form-label">Погрузка</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="pogruzka" name="otcuda" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="razgruzka" class="col-sm-2 col-form-label">Разгрузка</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="razgruzka" name="cyda" style="border:1px solid #DADADA; width:50%">
+    </div>
+  </div>
+
+    <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+    </div>
 {% endblock %}
