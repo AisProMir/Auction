@@ -23,18 +23,24 @@ class ReuisitionNoteView(TemplateView):
 class ReuisitionNoteCreateView(TemplateView):
     template_name = "main/reuisition_note_create.html"
 
+
     def post(self, request):
         number = request.POST["nomer"]
-        closing_time = request.POST["griz"]
+        closing_time = request.POST["vrema"]
         gruz = request.POST["griz"]
         transport = request.POST["mashina"]
         kolishestvo = request.POST["skolko"]
         pogruzka = request.POST["otcuda"]
         razgruzka = request.POST["cyda"]
-        Zayaka.objects.create(number=number,closing_time=closing_time,gruz=gruz,
-                              transport=transport,kolishestvo=kolishestvo,
+        Zayaka.objects.create(number=number, closing_time=closing_time,gruz=gruz,
+                              transport=transport, kolishestvo=kolishestvo,
                               pogruzka=pogruzka,razgruzka=razgruzka)
         return redirect("index")
+
+    def __init__(self, *args, **kwargs):
+        super(InformationOfCargo, self).__init__(*args, **kwargs)
+        self.id['gruz'].gueryset = Zayaka.objects.all()
+
 
 class GruzCreateView(TemplateView):
     template_name = "main/gruz_create.html"
