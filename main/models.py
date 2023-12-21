@@ -19,8 +19,8 @@ class Transport(models.Model):
 class InformationOfCargo(models.Model):
     name = models.CharField(max_length=100)
     temperatyra = models.IntegerField(default=0)
-    Ves = models.IntegerField(default=0)
-    Obiom = models.IntegerField(default=0)
+    ves = models.IntegerField(default=0)
+    obiom = models.IntegerField(default=0)
     kolvoMest = models.IntegerField(default=0)
     stoimostGruza = models.DecimalField(decimal_places=2, max_digits=2, blank=True, null=True)
 

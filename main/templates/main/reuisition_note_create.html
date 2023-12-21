@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+
+
+
     <div class="container-sm">
     <form method="post">
     {% csrf_token %}
@@ -21,21 +24,35 @@
     </div>
   </div>
   <div class="form-group row">
-    <label for="gruz" class="col-sm-2 col-form-label">Груз</label>
+    <label class="col-sm-2 col-form-label">Груз</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control-plaintext" id="gruz" name="griz" style="border:1px solid #DADADA; width:50%">
+  <select name="griz">
+        {%for i in items%}
+              <option value="#">{{i.name}}</option>
+        {%endfor%}
+    </select>
     </div>
   </div>
   <div class="form-group row">
-    <label for="transport" class="col-sm-2 col-form-label">Транспорт</label>
+    <label class="col-sm-2 col-form-label">Транспорт</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control-plaintext" id="transport" name="mashina" style="border:1px solid #DADADA; width:50%">
+  <select name="mashina">
+        {%for o in options%}
+              <option value="">{{o.name}}</option>
+        {%endfor%}
+    </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="gabar" class="col-sm-2 col-form-label">Габариты</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control-plaintext" id="gabar" name="gabariti" style="border:1px solid #DADADA; width:50%">
     </div>
   </div>
   <div class="form-group row">
     <label for="kolishestvo" class="col-sm-2 col-form-label">Количество</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control-plaintext" id="kolishestvo" name="skolko" style="border:1px solid #DADADA; width:50%">
+      <input type="text" class="form-control-plaintext" id="kolishestvo" name="skolko_mest" style="border:1px solid #DADADA; width:50%">
     </div>
   </div>
   <div class="form-group row">
